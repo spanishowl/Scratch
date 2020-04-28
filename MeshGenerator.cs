@@ -33,6 +33,28 @@ public class MeshGenerator : MonoBehaviour
 	    }
 	}
 	
+	triangles = new int[xSize * zSize * 6];
+	
+	int vert = 0;
+	int tris = 0;
+	
+	for (int z = 0; z < zSize; z++)
+	{
+		for (int x = 0; x < xSize; x++)
+		{
+			triangles[tris + 0] = vert + 0;
+			triangles[tris + 1] = vert + xSize + 1;
+			triangles[tris + 2] = vert + 1;
+			triangles[tris + 3] = vert + 1;
+			triangles[tris + 4] = vert + xSize + 1;
+			triangles[tris + 5] = vert + xsize + 2;
+
+			vert++;
+			tris += 6;
+		}
+		vert++;
+	}
+	
 	void UpdateMesh()
 	{
 	    mesh.Clear();
